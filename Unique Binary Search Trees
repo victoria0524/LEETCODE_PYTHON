@@ -1,0 +1,12 @@
+class Solution:
+    # @return an integer
+    def numTrees(self, n):
+        if n==0 or n==1:return 1
+        if n==2:return 2
+        count=0
+        for i in range(n):
+            count+=self.numTrees(i)*self.numTrees(n-i-1)
+        
+        return count
+        
+        
