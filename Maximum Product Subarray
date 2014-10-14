@@ -1,0 +1,17 @@
+class Solution:
+    # @param A, a list of integers
+    # @return an integer
+    def maxProduct(self, A):
+        n=len(A)
+        if A==None or n==0:return 0
+        if n==1:return A[0]
+        maxval=minval=result=A[0]
+        
+        for i in range (1,n):
+            temp=maxval
+            maxval=max(max(A[i],A[i]*maxval),minval*A[i])
+            minval=min(min(A[i],A[i]*temp),minval*A[i])
+            result=max(result,maxval)
+        
+        return result
+        
