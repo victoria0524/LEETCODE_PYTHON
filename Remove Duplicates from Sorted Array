@@ -1,0 +1,18 @@
+class Solution:
+    # @param a list of integers
+    # @return an integer
+    def removeDuplicates(self, A):
+        n=len(A)
+        if n==0:return 0
+        if n==1:return 1
+        
+        i=j=1
+        while j<n:
+            if A[j]>A[i-1]:
+                A[i]=A[j]
+                i=i+1
+            else:
+                j=j+1
+        return i
+            
+        
