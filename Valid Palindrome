@@ -1,0 +1,22 @@
+class Solution:
+    # @param s, a string
+    # @return a boolean
+    def isPalindrome(self, s):
+        result=[]
+        n=len(s)
+        s=s.lower()
+        
+        for i in range(n):
+            if (s[i]>='a' and s[i]<='z') or (s[i]>='0' and s[i]<='9'):
+                result.append(s[i])
+        
+        start=0
+        end=len(result)-1
+        
+        while start<end:
+            if result[start]!=result[end]:
+                return False
+            start+=1
+            end-=1
+        
+        return True
