@@ -1,0 +1,19 @@
+class Solution:
+    # @param digits, a list of integer digits
+    # @return a list of integer digits
+    def plusOne(self, digits):
+        n=len(digits)
+        count=1
+        
+        for i in range(n-1,-1,-1):
+            if digits[i]+count==10:
+                digits[i]=0
+                count=1
+            else:
+                digits[i]=digits[i]+count
+                count=0
+                
+        if count==1:
+             return [1]+digits
+
+        return digits
