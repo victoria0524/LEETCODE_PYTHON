@@ -1,0 +1,17 @@
+class Solution:
+    # @return a list of lists of integers
+    def combine(self, n, k):
+        result=[]
+        temp=[]
+        self.helper(result,temp,1,n,k)
+        return result
+    
+    def helper(self,result,temp,level,n,k):
+        if len(temp)==k:
+            result.append(temp[:])
+            return
+        
+        for i in range(level,n+1):
+            temp.append(i)
+            self.helper(result,temp,i+1,n,k)
+            temp.pop()
