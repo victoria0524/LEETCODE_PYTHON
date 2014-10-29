@@ -1,0 +1,23 @@
+class Solution:
+    # @param num, a list of integer
+    # @return an integer
+    def findMin(self, num):
+        r=len(num)-1
+        l=0
+        minV=num[0]
+        
+        while l<r-1:
+            m=(l+r)/2
+            if num[l]>num[m]:
+                minV=min(num[m],minV)
+                r=m-1
+            elif num[l]<num[m]:
+                minV=min(num[l],minV)
+                l=m+1
+            else:
+                l+=1
+        
+        minV=min(num[r],minV)
+        minV=min(num[l],minV)
+        
+        return minV
