@@ -1,0 +1,33 @@
+# Definition for a  binary tree node
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    # @param root, a tree node
+    # @return a list of lists of integers
+    def levelOrderBottom(self, root):
+        result=[]
+        if root==None:return result
+        self.helper(result,root,1)
+        
+        solution=[]
+        for i in range(len(result)-1,-1,-1):
+            solution.append(result[i])
+        return solution
+    
+    def helper(self,result,root,level):
+        if root==None:return
+        
+        temp=[]
+        
+        if len(result)<level:
+            result.append(temp)
+        else:
+            temp=result[level-1]
+            
+        temp.append(root.val)
+        self.helper(result,root.left,level+1)
+        self.helper(result,root.right,level+1)
