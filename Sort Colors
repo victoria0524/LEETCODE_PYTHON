@@ -1,0 +1,26 @@
+class Solution:
+    # @param A a list of integers
+    # @return nothing, sort in place
+    def sortColors(self, A):
+        n=len(A)
+        index=0
+        red=0
+        blue=n-1
+        
+        while index<blue+1:
+            if A[index]==0:
+                self.swap(A,index,red)
+                index+=1
+                red+=1
+            elif A[index]==2:
+                self.swap(A,index,blue)
+                blue-=1
+            else:
+                index+=1
+        
+        return A
+        
+    def swap(self,A,a,b):
+        temp=A[a]
+        A[a]=A[b]
+        A[b]=temp
