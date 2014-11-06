@@ -1,0 +1,22 @@
+class Solution:
+    # @param s, a string
+    # @return an integer
+    def longestValidParentheses(self, s):
+        n=len(s)
+        index=0
+        result=0
+        stack=[]
+        
+        for i in range(n):
+            if s[i]=='(':
+                stack.append(i)
+            else:
+                if len(stack)==0:
+                    index=i+1
+                else:
+                    stack.pop()
+                    if len(stack)==0:
+                        result=max(result,i-index+1)
+                    else:
+                        result=max(result,i-stack[len(stack)-1])
+        return result
