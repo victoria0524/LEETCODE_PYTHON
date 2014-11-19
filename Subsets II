@@ -1,0 +1,17 @@
+class Solution:
+    # @param num, a list of integer
+    # @return a list of lists of integer
+    def subsetsWithDup(self, S):
+        n=len(S)
+        result=[]
+        S.sort()
+        self.helper(result,[],S,0)
+        return result
+        
+    def helper(self,result,temp,S,step):
+        if temp not in result:
+            result.append(temp[:])
+        for i in range(step,len(S)):
+            temp.append(S[i])
+            self.helper(result,temp,S,i+1)
+            temp.pop()
