@@ -5,16 +5,12 @@ class Solution:
         n=len(num)
         result=[]
         visited=[False]*n
-        if n == 0: return []
-        if n == 1: return [num]
         self.helper(result,[],visited,num)
         return result
     
     def helper(self,result,temp,visited,num):
         if len(num)==len(temp):
             result.append(temp[:])
-            return
-        
         for i in range (len(num)):
             if visited[i]==True:
                 continue
