@@ -1,0 +1,28 @@
+class Solution {
+    public int numJewelsInStones(String J, String S) 
+    {
+          int [] a=new int[128];
+        char[] nj=J.toCharArray();
+        char[] ns=S.toCharArray();
+        for(int i =0; i<nj.length; i++)
+            a[nj[i]]=1;
+        int result=0;
+        for(int k =0; k<ns.length; k++)
+            result+=a[ns[k]];
+        
+        return result;
+        
+    }
+}
+
+class Solution {
+  public int numJewelsInStones(String J, String S) {
+    int[] f = new int[128];
+    for (final char c : J.toCharArray())
+      f[c] = 1;
+    int ans = 0;
+    for (final char d : S.toCharArray())
+      ans += f[d];
+    return ans;
+  }
+}
