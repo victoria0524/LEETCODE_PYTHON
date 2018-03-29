@@ -1,0 +1,14 @@
+class Solution(object):
+    def longestUnivaluePath(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if root==None:return 0
+        
+        result=max(self.longestUnivaluePath(root.left),self.longestUnivaluePath(root.right) )
+        return max(result, self.helper(root.left,root.val)+self.helper(root.right,root.val))
+    
+    def helper(self,root, target):
+        if root==None or root.val!=target: return 0
+        return 1+max(self.helper(root.left,target),self.helper(root.right,target))
