@@ -2,14 +2,13 @@ class Solution:
     # @param prices, a list of integer
     # @return an integer
     def maxProfit(self, prices):
-        n=len(prices)
-        if n<2:return 0
+        if len(prices)<2:return 0
         low=prices[0]
         high=0
         
-        for i in range (n):
-            low=min(low,prices[i])
-            high=max(high,prices[i]-low)
+        for p in prices:
+            low=min(low,p)
+            high=max(high,p-low)
         
         return high
             
