@@ -1,0 +1,2 @@
+SELECT num FROM number GROUP BY num 
+HAVING COUNT(*)=1;
