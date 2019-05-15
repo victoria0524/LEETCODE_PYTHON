@@ -14,5 +14,6 @@ class Solution:
                 m-=1
         
         while n>0:
-            A[m+n-1]=B[n-1]
+            A[n-1]=B[n-1]
             n-=1
+        return A
