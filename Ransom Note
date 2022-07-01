@@ -1,0 +1,28 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        m=list(magazine)
+        for i in ransomNote:
+            if i in m:
+                m.remove(i)
+            else:
+                return False
+        return True
+        
+        
+    method 2:
+    class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        
+        r_counter = collections.Counter(ransomNote)
+        m_counter = collections.Counter(magazine)
+        
+        for i in range(len(ransomNote)):
+            if r_counter[ransomNote[i]] > m_counter[ransomNote[i]]:
+                return False
+            
+        return True
