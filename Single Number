@@ -7,3 +7,12 @@ class Solution:
             result^=i
         return result
         
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        for key, val in collections.Counter(nums).items():
+            if val == 1:
+                return key
